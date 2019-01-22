@@ -1,22 +1,27 @@
 personaje = [] 
 
+def printEstado() :
+    print ("Vidas: ", personaje["vida"], "Dinero ", personaje["dinero"]) 
+
 def lootbox ():
     vida = 30
     print ("!Una lootbox salvaje apareció¡")
     while vida > 0:
-    	   acción = input("atacar o escapar: ") 
-    	   if acción == "atacar":
-        	   vida = vida - personaje["fuerza"]
-        	   if vida <= 0:
-            	     print("Ganaste!!")
-            	     print ("Tu premio es 2 monedas") 
-            	     #personajes["dinero"] = personajes["dinero"] +2
-            	     personajes["dinero"] =+ 2
-            	#else:
-                	 #print ("La lootbox ataca!!" )
+        acción = input("atacar o escapar: ") 
+        if acción == "atacar":
+            vida = vida - personaje["fuerza"]
+            if vida <= 0:
+                print("Ganaste!!")
+                print ("Tu premio es 2 monedas") 
+                #personajes["dinero"] = personajes["dinero"] +2
+                personaje["dinero"] =+ 2
+            else:
+                print ("La lootbox ataca!!" )
+                personaje["dinero"] -=1
+            printEstado()
         else:
             print ("Escapaste") 
-            return
+            return 
             	   
 def room01 () :
     print ("En la habitación no hay nada, pero hay dos puertas") 
@@ -50,6 +55,7 @@ def room03 () :"""
         room03()"""
 
 def entrada ():
+    
     print ("Has entrado") 
     print ("En el norte una puerta") 
     print ("En el sur vuelves a la entrada") 
@@ -68,17 +74,17 @@ print ("La ha escondido en el fondo de una mazmorra")
 print ("¿Quien quieres ser?") 
 opcion = input("pazos, caliebre, enoc") 
 if opcion == "pazos" :
-    personaje ["nombre"] = "Pazos64" 
-    personaje ["vida"] = 5
-    personaje ["dinero"] = 10
-    personaje ["fuerza"] = 10
+    personaje["nombre"] = {"Pazos64"} 
+    personaje["vida"] = 5
+    personaje["dinero"] = 10
+    personaje["fuerza"] = 10
 elif opcion == "caliebre" :
     personaje ["nombre"] = "TheCaliebre" 
     personaje ["vida"] = 5
     personaje ["dinero"] = 15
     personaje ["fuerza"] = 5
 elif opcion == "enoc" :
-    personaje ["nombre"] = "Pazos" 
+    personaje ["nombre"] = "Enoc" 
     personaje ["vida"] = 5
     personaje ["dinero"] = 5
     personaje ["fuerza"] = 15
